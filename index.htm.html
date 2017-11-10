@@ -1,0 +1,110 @@
+<!doctype html>
+<html> 
+    <head>
+
+    <title>Phones You Would Never Expect</title>
+
+    <style>
+        img{
+            width:150px;
+        }
+        input{
+            width:30px;
+        }
+        body {
+            background-color: #33ccff;
+        }        
+    </style>
+
+    <script>
+        function Purchase(){
+            var quantity1 = document.getElementById("quantity1");
+            var quantity2 = document.getElementById("quantity2");
+            var quantity3 = document.getElementById("quantity3");
+            var output = document.getElementById("output");
+            var subtotal  = parseFloat(quantity1.value * 499.99) + parseFloat(quantity2.value * 399.99) + parseFloat(quantity3.value * 999.99);
+            var companysubtotal = parseFloat(quantity1.value * 399.99) + parseFloat(quantity2.value * 300) + parseFloat(quantity3.value * 899);
+            var profit = subtotal - companysubtotal;
+            var itemsold = parseInt(quantity1.value) + parseInt(quantity2.value) + parseInt(quantity3.value);
+            console.log("Company profit is " + profit + " Items Company Sold " + itemsold);
+            var tax = subtotal * 0.0875;
+            var t = tax.toFixed(2);
+            var total = subtotal + tax; 
+            var s = total.toFixed(2);
+            
+            var build = "The Total Cost is " + s + "<br>"
+            ;
+            if (total >=400){
+                build += "Shipping costs 25" + "<br>"
+            }else if(total >= 600 && total <=900){
+                build += "Shipping cost 50"
+            }else if (total >=1000){
+                build +="Shipping is free"
+            }
+                build += "Subtotal: " + subtotal + "<br>" ; 
+                build += "Tax: " + tax + "<br>"; 
+                build += "------------------------- <br>";
+                build += "Total: " + s + "<br>";
+            output.innerHTML = build;
+
+        }  
+    </script>
+
+    </head>
+
+    <body> 
+
+        <marquee>If You Have Any Problems You Can Contact Us Anytime. Our Phone Number is (718)-226-8564</marquee>
+        <div>
+            <h2> Hardcase Flip phone </h2> 
+            <img src= "project images\flipphone1.jpg"><br>
+            <span>499.99</span>
+            <p>
+                A flip phone with your name all over it. Its perfect for your emails and has a very hard case. If you need to keep your important emails safe this phone is perfect for you.
+            </p> 
+            <input id = "quantity1" type = "text">
+        </div>
+        <button onclick = "Purchase();">
+             Purchase
+        </button>
+        <div id = "output"> </div>
+
+        <div>
+            <h2> White Flip phone </h2> 
+            <img src= "project images\flipphone2.jpg"><br>
+            <span>399.99</span>
+            <p>
+                This flip phone is great for texting. If you get a lot of calls and like to text a lot then this is JUST FOR YOU.
+            </p>
+            <input id = "quantity2" type = "text">
+        </div>
+        <button onclick = "Purchase();">
+            Purchase
+        </button>
+        <div id = "output"> </div>
+
+        <div style="float: right;"> <image src ="project images\geico.jpg"> </div>
+
+        <div>
+            <h2> Flip Phone X </h2> 
+            <img src= "project images\flipphone3.jpg"><br>
+            <span>$999</span>
+            <p>
+                An advanced flip phone made by samsung, it has great features and has even more apps. Take better pictures and store even more important files. 
+            </p>
+            <input id = "quantity3" type = "text">
+        </div>
+        <button onclick = "Purchase();">
+            Purchase
+        </button>
+        <div id = "output"></div>
+
+        <div>
+             <h2> Got A Broken Phone?</h2>
+            <img src= "project images\broken.jpg"><br>
+            <button onclick = "alert('Dectected a virus');">
+                Get Your Phone Today Fixed!!!!!
+            </button>
+
+    </body>
+</html>
